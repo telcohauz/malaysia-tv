@@ -1,62 +1,8 @@
 [
 {
-"name":"Load from IPTV-org",
-"category":"Live",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my.m3u",
-"type":"m3u"
-},
-{
-"name":"CCTV-1",
-"category":"China",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
-"type":"m3u"
-},
-{
-"name":"France Streams",
-"category":"France",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/fr.m3u",
-"type":"m3u"
-},
-{
-"name":"Germany Streams",
-"category":"Germany",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/de.m3u",
-"type":"m3u"
-},
-{
-"name":"Japan Streams",
-"category":"Japan",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/jp.m3u",
-"type":"m3u"
-},
-{
-"name":"UK Streams",
-"category":"UK",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/gb.m3u",
-"type":"m3u"
-},
-{
-"name":"USA Streams",
-"category":"USA",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/us.m3u",
-"type":"m3u"
-},
-{
-"name":"India Streams",
-"category":"India",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/in.m3u",
-"type":"m3u"
-},
-{
-"name":"Brazil Streams",
-"category":"Brazil",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/br.m3u",
-"type":"m3u"
-},
-{
-"name":"Canada Streams",
-"category":"Canada",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/ca.m3u",
+"name":"IPTV-org Global Index",
+"category":"Live TV",
+"stream":"https://iptv-org.github.io/iptv/index.m3u",
 "type":"m3u"
 }
 ]
