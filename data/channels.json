@@ -1,52 +1,52 @@
 [
 {
-"name":"Big Buck Bunny",
-"category":"Demo",
-"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.m3u8"
+"name":"CCTV News",
+"category":"Berita",
+"stream":"https://livehls.cctv.com/hls/cctv5phd/index.m3u8"
 },
 {
-"name":"Elephant Dream",
-"category":"Demo",
-"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.m3u8"
+"name":"France24 English",
+"category":"Berita",
+"stream":"https://www.france24.com/en/"
 },
 {
-"name":"For Bigger Blazes",
-"category":"Demo",
-"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.m3u8"
+"name":"DW English",
+"category":"Berita",
+"stream":"https://www.dw.com/en/live"
 },
 {
-"name":"Sintel",
-"category":"Demo",
-"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/Sintel.m3u8"
+"name":"Bloomberg TV",
+"category":"Berita",
+"stream":"https://liveprodstream.bloomberg.com/streams/prod/bloomberg_tv_main.m3u8"
 },
 {
-"name":"Tears of Steel",
-"category":"Demo",
-"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/TearsOfSteel.m3u8"
+"name":"TVP Info",
+"category":"Berita",
+"stream":"http://tvpstream.tvp.pl/imedia/ch2/ch2_dla_mnie.livx/playlist.m3u8"
 },
 {
-"name":"TV1 Malaysia",
-"category":"Nasional",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
+"name":"NHK World",
+"category":"Berita",
+"stream":"https://nhkworld.webcdn.stream/www11/nhkworld-tv/global/263141/live.m3u8"
 },
 {
-"name":"TV2 Malaysia",
-"category":"Nasional",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
+"name":"Al Jazeera",
+"category":"Berita",
+"stream":"https://www.aljazeera.com/live/"
 },
 {
-"name":"TV3 Malaysia",
-"category":"Hiburan",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
+"name":"BBC News",
+"category":"Berita",
+"stream":"https://www.bbc.com/news"
 },
 {
-"name":"NTV7 Malaysia",
-"category":"Hiburan",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
+"name":"Sky News",
+"category":"Berita",
+"stream":"https://www.skynews.com/watch/live"
 },
 {
-"name":"8TV Malaysia",
-"category":"Hiburan",
-"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
+"name":"Euronews",
+"category":"Berita",
+"stream":"https://euronews.com/live"
 }
 ]
