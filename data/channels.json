@@ -1,52 +1,52 @@
 [
 {
-"name":"TV1",
+"name":"Big Buck Bunny",
+"category":"Demo",
+"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.m3u8"
+},
+{
+"name":"Elephant Dream",
+"category":"Demo",
+"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/ElephantsDream.m3u8"
+},
+{
+"name":"For Bigger Blazes",
+"category":"Demo",
+"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/ForBiggerBlazes.m3u8"
+},
+{
+"name":"Sintel",
+"category":"Demo",
+"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/Sintel.m3u8"
+},
+{
+"name":"Tears of Steel",
+"category":"Demo",
+"stream":"https://commondatastorage.googleapis.com/gtv-videos-library/sample/TearsOfSteel.m3u8"
+},
+{
+"name":"TV1 Malaysia",
 "category":"Nasional",
-"stream":"https://ott.wanowtv.com/stream/tvstreams/b7f2d6f8-ef4e-11e8-b6c8-2cfda1c5d5f8/playlist.m3u8"
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
 },
 {
-"name":"TV2",
+"name":"TV2 Malaysia",
 "category":"Nasional",
-"stream":"https://ott.wanowtv.com/stream/tvstreams/b8081ad8-ef4e-11e8-b6c8-2cfda1c5d5f8/playlist.m3u8"
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
 },
 {
-"name":"TV3",
+"name":"TV3 Malaysia",
 "category":"Hiburan",
-"stream":"https://rtmp1.iptv.media/live/tv3hd.stream/playlist.m3u8"
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
 },
 {
-"name":"NTV7",
+"name":"NTV7 Malaysia",
 "category":"Hiburan",
-"stream":"https://rtmp1.iptv.media/live/ntv7.stream/playlist.m3u8"
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
 },
 {
-"name":"8TV",
+"name":"8TV Malaysia",
 "category":"Hiburan",
-"stream":"https://rtmp1.iptv.media/live/8tv.stream/playlist.m3u8"
-},
-{
-"name":"TV Okey",
-"category":"RTM",
-"stream":"https://rtmp1.iptv.media/live/tvokeeducation.stream/playlist.m3u8"
-},
-{
-"name":"Bernama TV",
-"category":"Berita",
-"stream":"https://rtmp1.iptv.media/live/bernamatv.stream/playlist.m3u8"
-},
-{
-"name":"RTM Parlimen",
-"category":"Dokumentary",
-"stream":"https://rtmp1.iptv.media/live/parlemen.stream/playlist.m3u8"
-},
-{
-"name":"Astro Awani",
-"category":"Berita",
-"stream":"https://rtmp1.iptv.media/live/awani.stream/playlist.m3u8"
-},
-{
-"name":"Hello",
-"category":"Anak-anak",
-"stream":"https://rtmp1.iptv.media/live/hello.stream/playlist.m3u8"
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my_en.m3u"
 }
 ]
