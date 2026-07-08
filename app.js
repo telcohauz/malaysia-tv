@@ -71,11 +71,23 @@ document.getElementById("nowPlaying").innerHTML=
 "Sedang menonton: "+channel.name;
 
 
+// Guna CORS proxy untuk handle CORS issues
+let streamUrl = channel.stream;
+
+if(!streamUrl.includes('localhost')){
+  streamUrl = "https://cors-anywhere.herokuapp.com/" + streamUrl;
+}
+
+
 if(Hls.isSupported()){
 
-let hls = new Hls();
+let hls = new Hls({
+  xhrSetup: function(xhr){
+    xhr.withCredentials = false;
+  }
+});
 
-hls.loadSource(channel.stream);
+hls.loadSource(streamUrl);
 
 hls.attachMedia(player);
 
@@ -83,10 +95,14 @@ hls.on(Hls.Events.MANIFEST_PARSED,function(){
 player.play();
 });
 
+hls.on(Hls.Events.ERROR, function(event, data){
+  console.log('HLS Error:', data);
+});
+
 }
 else{
 
-player.src = channel.stream;
+player.src = streamUrl;
 player.play();
 
 }
