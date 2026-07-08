@@ -1,0 +1,37 @@
+[
+{
+"name":"TV1",
+"category":"Nasional",
+"stream":""
+},
+
+{
+"name":"TV2",
+"category":"Nasional",
+"stream":""
+},
+
+{
+"name":"TV3",
+"category":"Hiburan",
+"stream":""
+},
+
+{
+"name":"TV6",
+"category":"Hiburan",
+"stream":""
+},
+
+{
+"name":"TV Okey",
+"category":"RTM",
+"stream":""
+},
+
+{
+"name":"Bernama TV",
+"category":"Berita",
+"stream":""
+}
+]
