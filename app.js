@@ -71,12 +71,7 @@ document.getElementById("nowPlaying").innerHTML=
 "Sedang menonton: "+channel.name;
 
 
-// Guna CORS proxy untuk handle CORS issues
 let streamUrl = channel.stream;
-
-if(!streamUrl.includes('localhost')){
-  streamUrl = "https://cors-anywhere.herokuapp.com/" + streamUrl;
-}
 
 
 if(Hls.isSupported()){
