@@ -1,6 +1,7 @@
 let channels=[];
 let allStreams={};
 let currentPlaylist='';
+let streamValidationCache={};
 
 document.addEventListener('DOMContentLoaded', function(){
   fetch("data/channels.json")
@@ -34,6 +35,25 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 
+async function validateStream(url) {
+  if(streamValidationCache[url] !== undefined) {
+    return streamValidationCache[url];
+  }
+  
+  try {
+    let response = await fetch(url, { 
+      method: 'HEAD', 
+      mode: 'cors',
+      timeout: 5000
+    });
+    streamValidationCache[url] = response.ok;
+    return response.ok;
+  } catch(e) {
+    streamValidationCache[url] = false;
+    return false;
+  }
+}
+
 function parseM3U(content, playlistName) {
   let streams = {};
   let lines = content.split('\n');
@@ -54,7 +74,8 @@ function parseM3U(content, playlistName) {
         name: name,
         stream: null,
         countries: countries.map(c => c.trim()),
-        rawLine: line
+        rawLine: line,
+        status: 'pending' // pending, working, broken
       };
     } else if((line.startsWith('http://') || line.startsWith('https://')) && currentStream) {
       currentStream.stream = line;
@@ -200,21 +221,62 @@ function displayChannels(list, country){
   };
   container.appendChild(backBtn);
 
-  // Channel cards
+  // Channel cards with status validation
   list.slice(0, 50).forEach(channel=>{
     let card=document.createElement("div");
     card.className="channel-card";
 
+    let statusIcon = channel.status === 'working' ? '✅' : channel.status === 'broken' ? '❌' : '⏳';
+    let statusText = channel.status === 'working' ? 'Working' : channel.status === 'broken' ? 'Broken' : 'Checking...';
+    let statusClass = 'status-' + channel.status;
+
     card.innerHTML=`
       <h3>${channel.name}</h3>
+      <div class="channel-status ${statusClass}">
+        <span>${statusIcon} ${statusText}</span>
+      </div>
       <small>${channel.countries.join(', ')}</small>
     `;
 
-    card.onclick=function(){
-      playChannel(channel);
-    };
+    // Only allow click if working or checking
+    if(channel.status !== 'broken') {
+      card.style.cursor = 'pointer';
+      card.onclick=function(){
+        playChannel(channel);
+      };
+    } else {
+      card.style.cursor = 'not-allowed';
+      card.style.opacity = '0.6';
+    }
 
     container.appendChild(card);
+    
+    // Validate stream in background
+    if(channel.status === 'pending') {
+      validateStream(channel.stream).then(isWorking => {
+        channel.status = isWorking ? 'working' : 'broken';
+        
+        // Update card UI
+        let statusDiv = card.querySelector('.channel-status');
+        let statusSpan = statusDiv.querySelector('span');
+        
+        if(isWorking) {
+          statusDiv.className = 'channel-status status-working';
+          statusSpan.innerHTML = '✅ Working';
+          card.style.cursor = 'pointer';
+          card.style.opacity = '1';
+          card.onclick=function(){
+            playChannel(channel);
+          };
+        } else {
+          statusDiv.className = 'channel-status status-broken';
+          statusSpan.innerHTML = '❌ Broken';
+          card.style.cursor = 'not-allowed';
+          card.style.opacity = '0.6';
+          card.onclick = null;
+        }
+      });
+    }
   });
   
   if(list.length > 50) {
@@ -231,6 +293,11 @@ function playChannel(channel){
   
   if(!player || !nowPlaying) {
     console.error('Player element not found');
+    return;
+  }
+  
+  if(channel.status === 'broken') {
+    nowPlaying.innerHTML="❌ This stream is not working";
     return;
   }
   
