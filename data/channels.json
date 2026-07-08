@@ -1,52 +1,62 @@
 [
 {
-"name":"CCTV News",
-"category":"Berita",
-"stream":"https://livehls.cctv.com/hls/cctv5phd/index.m3u8"
+"name":"Load from IPTV-org",
+"category":"Live",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/my.m3u",
+"type":"m3u"
 },
 {
-"name":"France24 English",
-"category":"Berita",
-"stream":"https://www.france24.com/en/"
+"name":"CCTV-1",
+"category":"China",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u",
+"type":"m3u"
 },
 {
-"name":"DW English",
-"category":"Berita",
-"stream":"https://www.dw.com/en/live"
+"name":"France Streams",
+"category":"France",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/fr.m3u",
+"type":"m3u"
 },
 {
-"name":"Bloomberg TV",
-"category":"Berita",
-"stream":"https://liveprodstream.bloomberg.com/streams/prod/bloomberg_tv_main.m3u8"
+"name":"Germany Streams",
+"category":"Germany",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/de.m3u",
+"type":"m3u"
 },
 {
-"name":"TVP Info",
-"category":"Berita",
-"stream":"http://tvpstream.tvp.pl/imedia/ch2/ch2_dla_mnie.livx/playlist.m3u8"
+"name":"Japan Streams",
+"category":"Japan",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/jp.m3u",
+"type":"m3u"
 },
 {
-"name":"NHK World",
-"category":"Berita",
-"stream":"https://nhkworld.webcdn.stream/www11/nhkworld-tv/global/263141/live.m3u8"
+"name":"UK Streams",
+"category":"UK",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/gb.m3u",
+"type":"m3u"
 },
 {
-"name":"Al Jazeera",
-"category":"Berita",
-"stream":"https://www.aljazeera.com/live/"
+"name":"USA Streams",
+"category":"USA",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/us.m3u",
+"type":"m3u"
 },
 {
-"name":"BBC News",
-"category":"Berita",
-"stream":"https://www.bbc.com/news"
+"name":"India Streams",
+"category":"India",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/in.m3u",
+"type":"m3u"
 },
 {
-"name":"Sky News",
-"category":"Berita",
-"stream":"https://www.skynews.com/watch/live"
+"name":"Brazil Streams",
+"category":"Brazil",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/br.m3u",
+"type":"m3u"
 },
 {
-"name":"Euronews",
-"category":"Berita",
-"stream":"https://euronews.com/live"
+"name":"Canada Streams",
+"category":"Canada",
+"stream":"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/ca.m3u",
+"type":"m3u"
 }
 ]
