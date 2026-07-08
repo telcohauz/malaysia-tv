@@ -66,16 +66,30 @@ function playChannel(channel){
 let player=document.getElementById("player");
 
 
-player.src=channel.stream;
-
-
 document.getElementById("nowPlaying").innerHTML=
 
 "Sedang menonton: "+channel.name;
 
 
+if(Hls.isSupported()){
+
+let hls = new Hls();
+
+hls.loadSource(channel.stream);
+
+hls.attachMedia(player);
+
+hls.on(Hls.Events.MANIFEST_PARSED,function(){
+player.play();
+});
+
+}
+else{
+
+player.src = channel.stream;
 player.play();
 
+}
 
 }
 
