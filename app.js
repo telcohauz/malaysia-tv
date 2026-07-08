@@ -22,12 +22,10 @@ document.addEventListener('DOMContentLoaded', function(){
       
       let results = [];
       Object.keys(allStreams).forEach(country => {
-        Object.keys(allStreams[country]).forEach(category => {
-          allStreams[country][category].forEach(channel => {
-            if(channel.name.toLowerCase().includes(keyword)) {
-              results.push(channel);
-            }
-          });
+        allStreams[country].forEach(channel => {
+          if(channel.name.toLowerCase().includes(keyword)) {
+            results.push(channel);
+          }
         });
       });
 
@@ -45,34 +43,28 @@ function parseM3U(content, playlistName) {
     line = line.trim();
     
     if(line.startsWith('#EXTINF:')) {
-      // Extract tvg-country, group-title, tvg-name
+      // Extract tvg-country, tvg-name
       let countryMatch = line.match(/tvg-country="([^"]*)"/);
-      let categoryMatch = line.match(/group-title="([^"]*)"/);
       let nameMatch = line.match(/,(.+)$/);
       
       let countries = countryMatch ? countryMatch[1].split(',') : ['Unknown'];
-      let category = categoryMatch ? categoryMatch[1] : 'Uncategorized';
       let name = nameMatch ? nameMatch[1].trim() : 'Unknown';
       
       currentStream = {
         name: name,
         stream: null,
-        category: category,
         countries: countries.map(c => c.trim()),
         rawLine: line
       };
     } else if((line.startsWith('http://') || line.startsWith('https://')) && currentStream) {
       currentStream.stream = line;
       
-      // Organize by country
+      // Organize by country ONLY
       for(let country of currentStream.countries) {
         if(!streams[country]) {
-          streams[country] = {};
+          streams[country] = [];
         }
-        if(!streams[country][currentStream.category]) {
-          streams[country][currentStream.category] = [];
-        }
-        streams[country][currentStream.category].push(currentStream);
+        streams[country].push(currentStream);
       }
       
       currentStream = null;
@@ -173,60 +165,16 @@ function displayCountries(countries) {
     let card=document.createElement("div");
     card.className="channel-card";
     
-    let categoryCount = allStreams[country] ? Object.keys(allStreams[country]).length : 0;
-    let channelCount = allStreams[country] ? Object.values(allStreams[country]).reduce((sum, cat) => sum + cat.length, 0) : 0;
+    let channelCount = allStreams[country] ? allStreams[country].length : 0;
     
     card.innerHTML=`
       <h3>${country}</h3>
-      <p>${categoryCount} categories</p>
-      <small>${channelCount} channels</small>
-    `;
-    
-    card.onclick=function(){
-      if(allStreams[country]) {
-        displayCategories(country);
-      }
-    };
-    
-    container.appendChild(card);
-  });
-}
-
-function displayCategories(country) {
-  let container=document.getElementById("channels");
-  container.innerHTML="";
-  
-  if(!allStreams[country]) {
-    container.innerHTML="<p style='color:red;'>No data for "+country+"</p>";
-    return;
-  }
-  
-  let categories = Object.keys(allStreams[country]);
-  
-  // Back button
-  let backBtn=document.createElement("div");
-  backBtn.className="channel-card";
-  backBtn.innerHTML="<h3>← Back to Countries</h3>";
-  backBtn.onclick=function(){
-    displayCountries(Object.keys(allStreams).sort());
-  };
-  container.appendChild(backBtn);
-  
-  // Category cards
-  categories.sort().forEach(category=>{
-    let card=document.createElement("div");
-    card.className="channel-card";
-    
-    let channelCount = allStreams[country][category] ? allStreams[country][category].length : 0;
-    
-    card.innerHTML=`
-      <h3>${category}</h3>
       <p>${channelCount} channels</p>
     `;
     
     card.onclick=function(){
-      if(allStreams[country][category]) {
-        displayChannels(allStreams[country][category], country, category);
+      if(allStreams[country]) {
+        displayChannels(allStreams[country], country);
       }
     };
     
@@ -234,7 +182,7 @@ function displayCategories(country) {
   });
 }
 
-function displayChannels(list, country, category){
+function displayChannels(list, country){
   let container=document.getElementById("channels");
   container.innerHTML="";
   
@@ -246,13 +194,9 @@ function displayChannels(list, country, category){
   // Back button
   let backBtn=document.createElement("div");
   backBtn.className="channel-card";
-  backBtn.innerHTML="<h3>← Back to Categories</h3>";
+  backBtn.innerHTML="<h3>← Back to Countries</h3>";
   backBtn.onclick=function(){
-    if(country) {
-      displayCategories(country);
-    } else {
-      displayCountries(Object.keys(allStreams).sort());
-    }
+    displayCountries(Object.keys(allStreams).sort());
   };
   container.appendChild(backBtn);
 
@@ -263,7 +207,6 @@ function displayChannels(list, country, category){
 
     card.innerHTML=`
       <h3>${channel.name}</h3>
-      <p>${channel.category}</p>
       <small>${channel.countries.join(', ')}</small>
     `;
 
